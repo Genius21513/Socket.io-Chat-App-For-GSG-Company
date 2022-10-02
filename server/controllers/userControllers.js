@@ -48,6 +48,7 @@ const registerUser = asyncHandler(async (req, res) => {
 // @route		/api/users/login
 // @access		Public
 const loginUser = asyncHandler(async (req, res) => {
+  console.log('asdfasd');
   try {
     const { email, password } = req.body;
     const userExist = await User.findOne({ email });

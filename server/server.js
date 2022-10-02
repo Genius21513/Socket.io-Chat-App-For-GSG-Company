@@ -25,10 +25,10 @@ app.use("/api/notification", notificationRoutes);
 
 const __dirname$ = path.resolve();
 if (process.env.NODE_ENV === "production") {
-  // app.use(express.static(path.join(__dirname$, "/client/build")));
-  // app.get("*", (req, res) => {
-  //   res.sendFile(path.resolve(__dirname$, "client", "build", "index.html"));
-  // });
+  app.use(express.static(path.join(__dirname$, "/client/build")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname$, "client", "build", "index.html"));
+  });
 } else {
   // First route
   app.get("/", (req, res) => {
@@ -46,9 +46,9 @@ app.use(errorHandler);
 
 const server = app.listen(process.env.PORT || 5000, () => {
   console.log(
-    colors.brightMagenta(`\nServer is UP on PORT ${process.env.SERVER_PORT}`)
+    colors.brightMagenta(`\nServer is UP on PORT ${process.env.PORT}`)
   );
-  console.log(`Visit  ` + colors.underline.blue(`localhost:${5000}`));
+  // console.log(`Visit  ` + colors.underline.blue(`http://10.10.13.227:${5000}`));
 });
 
 const io = require("socket.io")(server, {

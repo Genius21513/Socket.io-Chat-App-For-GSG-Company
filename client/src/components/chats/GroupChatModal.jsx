@@ -124,14 +124,14 @@ const GroupChatModal = ({ children }) => {
             justifyContent="center"
             textTransform="capitalize"
           >
-            Create Group
+            Create Team
           </ModalHeader>
           <Divider />
           <ModalCloseButton />
           <ModalBody d="flex" flexDir="column" alignItems="center">
             <FormControl pb="5" pt="5">
               <Input
-                placeholder="Enter Group Name"
+                placeholder="Enter Team Name"
                 onChange={(e) => setGroupChatName(e.target.value)}
               />
             </FormControl>
@@ -153,7 +153,7 @@ const GroupChatModal = ({ children }) => {
             <Divider />
             <Box
               minHeight="150px"
-              maxHeight="150px"
+              maxHeight="1000px"
               w="100%"
               mt="3"
               overflowY="scroll"

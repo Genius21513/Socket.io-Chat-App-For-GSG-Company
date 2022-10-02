@@ -90,7 +90,7 @@ const UpdateGroupChatModal = ({
         { chatName: groupChatName, chatId: selectedChat._id },
         config
       );
-      toast.info(`Group name successfully changed to ${data.chatName}`);
+      toast.info(`Team name successfully changed to ${data.chatName}`);
       setSelectedChat(data);
       setFetchAgain(!fetchAgain);
       setRenameLoading(false);
@@ -124,11 +124,11 @@ const UpdateGroupChatModal = ({
   };
   const handleAddMember = async (userToAdd) => {
     if (userToAdd.email === "guest@deLink.com") {
-      toast.info("\nGuest user can not be a part of group");
+      toast.info("\nGuest user can not be a part of Team");
       return;
     }
     if (selectedChat.users.find((u) => u._id === userToAdd._id)) {
-      toast.info("User already present in the group");
+      toast.info("User already present in the team");
       return;
     }
     if (user.user._id !== selectedChat.groupAdmin._id) {
@@ -204,7 +204,7 @@ const UpdateGroupChatModal = ({
           <Divider />
           <ModalBody>
             <Box>
-              <Text>Group Members</Text>
+              <Text>Team Members</Text>
               {selectedChat.users.map((user) => (
                 <UserBadgeItem
                   key={user._id}
@@ -235,7 +235,7 @@ const UpdateGroupChatModal = ({
             </FormControl>
             <FormControl d="flex" width="100%">
               <Input
-                placeholder="Add members to group"
+                placeholder="Add members to Team"
                 mb="3"
                 onChange={(e) => handleSearch(e.target.value)}
               />
@@ -251,7 +251,7 @@ const UpdateGroupChatModal = ({
                 <Loader />
               </Box>
             ) : (
-              <Box minH="100px" maxH="100px" overflowY="scroll">
+              <Box minH="100px" maxH="1000px" overflowY="scroll">
                 {searchResult?.map((user) => (
                   <UserListItem
                     width="100%"
@@ -273,7 +273,7 @@ const UpdateGroupChatModal = ({
                 </AccordionButton>
                 <AccordionPanel>
                   <Text>
-                    By Leaving the Group, you will not be able to access old
+                    By Leaving the Team, you will not be able to access old
                     chat and all the chat media will be deleted as well
                   </Text>
                   <Button
@@ -282,7 +282,7 @@ const UpdateGroupChatModal = ({
                     width="100%"
                     onClick={() => handleRemove(user)}
                   >
-                    Leave Group
+                    Leave Team
                   </Button>
                 </AccordionPanel>
               </AccordionItem>

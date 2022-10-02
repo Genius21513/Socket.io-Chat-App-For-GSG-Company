@@ -134,23 +134,25 @@ const MyChats = ({ fetchAgain }) => {
         alignItems="center"
       >
         {/* <Text>My Chats</Text> */}
-        <GroupChatModal>
-          <Button
-            d="flex"
-            fontSize={{ base: "1rem", md: "0.9rem", lg: "1rem" }}
-            color="#fff"
-            rightIcon={
-              <div style={{ color: "#fff" }}>
-                <IoMdAdd />
-              </div>
-            }
-            zIndex="0"
-            colorScheme={"blackAlpha"}
-            bg={"#1d1931"}
-          >
-            Create Group
-          </Button>
-        </GroupChatModal>
+        {user.user.role == 'superadmin' &&
+          <GroupChatModal>
+            <Button
+              d="flex"
+              fontSize={{ base: "1rem", md: "0.9rem", lg: "1rem" }}
+              color="#fff"
+              rightIcon={
+                <div style={{ color: "#fff" }}>
+                  <IoMdAdd />
+                </div>
+              }
+              zIndex="0"
+              colorScheme={"blackAlpha"}
+              bg={"#1d1931"}
+            >
+              Create Team
+            </Button>
+          </GroupChatModal>
+        }
       </Box>
       <Box
         d="flex"
